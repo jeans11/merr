@@ -72,7 +72,6 @@
   =>   [a b (error? +err+)])
   [nil nil true]
   ```"
-  {:style/indent 2}
   [err-sym bindings & body]
   (assert (vector? bindings) "a vector for its binding")
   (assert (even? (count bindings)) "an even number of forms in binding vector")
