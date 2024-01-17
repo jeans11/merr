@@ -242,3 +242,15 @@
 (def ^:deprecated err
   "DEPRECATED"
   error)
+
+(defmacro match [tst & clauses]
+  (clojure.core/let [[result-vec result-form error-vec error-form] clauses
+                     result-bind (result-vec 0)
+                     error-bind (error-vec 0)]
+    `(clojure.core/let [res# ~tst]
+       (if-not (error? res#)
+         (clojure.core/let [~result-bind res#]
+           ~result-form)
+         (clojure.core/let [~error-bind res#]
+           ~error-form)))))
+

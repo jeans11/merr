@@ -1,3 +1,4 @@
 {:lint-as {merr.core/-> clojure.core/->
            merr.core/->> clojure.core/->>}
- :hooks {:analyze-call {merr.core/let hooks.merr/merr-let}}}
+ :hooks {:analyze-call {merr.core/let hooks.merr/merr-let
+                        merr.core/match hooks.merr/merr-match}}}

@@ -136,3 +136,10 @@
                             :data {:merr/type ::error}
                             :cause ex})
                 (sut/try (throw ex))))))
+
+(t/deftest match-test
+  (t/testing "succeeded"
+    (let [my-fn (fn [] "Hello")]
+      (t/is (= "Hello World" (sut/match (my-fn)
+                               [result] (str result " World")
+                               [error] error))))))
